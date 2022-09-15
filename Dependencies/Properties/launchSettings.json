@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Dependencies": {
+      "commandName": "Project",
+      "commandLineArgs": "data.yml"
+    }
+  }
+}

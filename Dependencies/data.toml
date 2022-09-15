@@ -1,0 +1,15 @@
+﻿# cerchio, rettangolo, quadrato
+figura = "rettangolo"
+
+# area, perimetro
+calcola = "area"
+
+#[dimensioni_cerchio]
+#raggio = 1
+
+[dimensioni_rettangolo]
+larghezza = 10
+altezza = 5
+
+#[dimensioni_quadrato]
+#lato = 3
