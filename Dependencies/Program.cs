@@ -25,6 +25,7 @@
 #endregion
 
 using Calculator.FigureGeometriche;
+using Tomlyn;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -38,11 +39,16 @@ if (args.Length < 1) {
 string fileName = args[0];
 string fileContent = File.ReadAllText(fileName);
 
-IDeserializer yamlDeserializer = new DeserializerBuilder()
-    .WithNamingConvention(UnderscoredNamingConvention.Instance)
-    .Build();
+Dati dati;
+if (Path.GetExtension(fileName) == ".toml") {
+    dati = Toml.ToModel<Dati>(fileContent);
+} else {
+    IDeserializer yamlDeserializer = new DeserializerBuilder()
+        .WithNamingConvention(UnderscoredNamingConvention.Instance)
+        .Build();
 
-Dati dati = yamlDeserializer.Deserialize<Dati>(fileContent);
+    dati = yamlDeserializer.Deserialize<Dati>(fileContent);
+}
 
 // chiede le dimensioni
 IFiguraGeometrica figura;
